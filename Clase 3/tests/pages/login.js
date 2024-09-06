@@ -5,8 +5,12 @@ exports.Login = class Login {
         this.page = page
         this.lblNewUser = page.getByText('New User Signup!')
         this.txtBoxName = page.getByPlaceholder('Name')
-        this.txtBoxEmail = page.locator('[data-qa="signup-email"]')
+        this.txtBoxSignUpEmail = page.locator('[data-qa="signup-email"]')
         this.btnSignUp = page.getByRole('button',{name:'Signup'})
+        this.txtBoxLoginEmail = page.locator('[data-qa="login-email"]')
+        this.password = page.getByRole('textbox',{name: 'Password'})
+        this.btnLogin = page.getByRole('button',{name:'Login'})
+        this.txtIncorrectCredentials = page.getByText('Your email or password is incorrect!')
     }
 
     async fillName(name){
@@ -14,17 +18,26 @@ exports.Login = class Login {
         await this.txtBoxName.fill(name)
     }
     async fillEmail(email){
-        await this.txtBoxEmail.fill(email)
+        await this.txtBoxSignUpEmail.fill(email)
     }
 
     async fillNameAndEmail(name, email){
         await expect(this.lblNewUser).toBeVisible()
         await this.txtBoxName.fill(name)
-        await this.txtBoxEmail.fill(email)
+        await this.txtBoxSignUpEmail.fill(email)
         await this.btnSignUp.click()
     }
-
     async clickSignUpBtn(){
         await this.btnSignUp.click()
     }
+    
+    async loginUserWithCredentials(email, password){
+        await this.txtBoxLoginEmail.fill(email)
+        await this.password.fill(password)
+        await this.btnLogin.click()
+    }
+    async assertTextWrongCredentials(){
+        await expect(this.txtIncorrectCredentials).toBeVisible()
+    }
+
 }

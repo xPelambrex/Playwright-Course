@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "testV2": "npx playwright test homev2.spec.js",
-    "testV2UI":"npx playwright test homev2.spec.js --ui"
+    "testV2UI": "npx playwright test homev2.spec.js --ui"
   },
   "keywords": [],
   "author": "",
@@ -13,5 +13,8 @@
   "devDependencies": {
     "@playwright/test": "^1.46.1",
     "@types/node": "^22.5.1"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5"
   }
 }
