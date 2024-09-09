@@ -7,7 +7,7 @@ exports.Login = class Login {
         this.txtBoxName = page.getByPlaceholder('Name')
         this.txtBoxSignUpEmail = page.locator('[data-qa="signup-email"]')
         this.btnSignUp = page.getByRole('button',{name:'Signup'})
-        this.txtBoxLoginEmail = page.locator('[data-qa="login-email"]')
+        this.txtBoxLoginEmail = page.locator('[data-qa="login-email"]',{wait: 5000})
         this.password = page.getByRole('textbox',{name: 'Password'})
         this.btnLogin = page.getByRole('button',{name:'Login'})
         this.txtIncorrectCredentials = page.getByText('Your email or password is incorrect!')

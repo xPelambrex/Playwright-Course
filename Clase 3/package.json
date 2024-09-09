@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "testV2": "npx playwright test homev2.spec.js",
-    "testV2UI": "npx playwright test homev2.spec.js --ui"
+    "testV2": "npx playwright test tests/homev2.spec.js",
+    "testV2UI": "npx playwright test tests/homev2.spec.js --ui"
   },
   "keywords": [],
   "author": "",

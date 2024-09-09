@@ -7,6 +7,7 @@ const { expect } = require('@playwright/test')
         this.logoAutomation = page.getByAltText('Website for automation practice')
         this.btnLogin = page.getByRole('link',{name:'Signup / Login'})
         this.btnLogout = page.getByRole('link',{name:'Logout'})
+        this.btnContact = page.getByRole('link',{name:'Contact us'})
     }
     async navigateToLogin(){
         await expect(this.logoAutomation).toBeVisible()
@@ -17,5 +18,8 @@ const { expect } = require('@playwright/test')
     }
     async clickLogout() {
         await this.btnLogout.click()
+    }
+    async navigateToContactUs(){
+        await this.btnContact.click()
     }
  }
